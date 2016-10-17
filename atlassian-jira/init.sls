@@ -155,10 +155,9 @@ jira-dbconfig:
       - service: jira
 {% endif %}
 
-{% for chmoddir in ['bin', 'work', 'temp', 'logs'] %}
-jira-permission-{{ chmoddir }}:
+jira-permission-installdir:
   file.directory:
-    - name: {{ jira.dirs.install }}/{{ chmoddir }}
+    - name: {{ jira.dirs.install }}
     - user: {{ jira.user }}
     - group: {{ jira.group }}
     - recurse:
@@ -170,7 +169,6 @@ jira-permission-{{ chmoddir }}:
       - user: jira
     - require_in:
       - service: jira
-{% endfor %}
 
 jira-disable-JiraSeraphAuthenticator:
   file.blockreplace:
