@@ -51,7 +51,7 @@
     <Service name="Catalina">
         <Connector port="{{ config.http_port }}"
                   {% if 'address' in config %}
-                  address={{ config.address }}
+                  address="{{ config.address }}"
                   {% endif %}
 
                    maxThreads="150"
@@ -112,7 +112,7 @@
         -->
         <Connector port="{{ config.ajp_port }}"
           {% if 'address' in config %}
-          address={{ config.address }}
+          address="{{ config.address }}"
           {% endif %}
           enableLookups="false" protocol="AJP/1.3" URIEncoding="UTF-8"/>
           
